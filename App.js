@@ -1,12 +1,10 @@
-import React from 'react';
+const express = require('express');
+const app = express();
 
-const App = () => {
-  return (
-    <div>
-      <h1>Hello from the Front-End!</h1>
-      <p>This is a basic React app connected to the back-end.</p>
-    </div>
-  );
-};
+app.get('/api/message', (req,res) => {
+  res.json({ message: 'Hello from the back-end!' });
+});
 
-export default App;
+app.listen(5000, () => {
+  console.log('Back-end running on port 5000');
+});
